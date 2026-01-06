@@ -1,10 +1,10 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 set -e
 
-pane_id="$1"
 last_path=""
 current_path=""
+pane_id="$1"
 
 if [[ -z $TMUX ]]; then
   echo "this script only runs inside tmux"
