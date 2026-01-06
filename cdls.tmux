@@ -2,5 +2,5 @@
 
 CURRENT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
-tmux bind-key d run-shell "$CURRENT_DIR/scripts/starter.sh"
-tmux bind-key D kill-pane -t {up-of}
+tmux bind-key e run-shell "$CURRENT_DIR/scripts/starter.sh"
+tmux bind-key E kill-pane -t {up-of}
