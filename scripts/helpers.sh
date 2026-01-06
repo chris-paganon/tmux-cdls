@@ -61,3 +61,26 @@ tmux_version_int() {
 	local tmux_version_string=$(tmux -V)
 	echo "$(_get_digits_from_string "$tmux_version_string")"
 }
+
+stored_key_vars() {
+	tmux show-options -g |
+		\grep -i "^${VAR_KEY_PREFIX}-" |
+		cut -d ' ' -f1 |               # cut just the variable names
+		xargs                          # splat var names in one line
+}
+
+# get the key from the variable name
+get_key_from_option_name() {
+	local option="$1"
+	echo "$option" |
+		sed "s/^${VAR_KEY_PREFIX}-//"
+}
+
+get_value_from_option_name() {
+	local option="$1"
+	echo "$(get_tmux_option "$option" "")"
+}
+
+cdls_key() {
+	get_tmux_option "$CDLS_OPTION" "$CDLS_KEY"
+}
