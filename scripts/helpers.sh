@@ -84,3 +84,25 @@ get_value_from_option_name() {
 cdls_key() {
 	get_tmux_option "$CDLS_OPTION" "$CDLS_KEY"
 }
+
+cdls_size() {
+	get_tmux_option "$CDLS_SIZE_OPTION" "$CDLS_SIZE"
+}
+
+cdls_user_command() {
+	get_tmux_option "$CDLS_COMMAND_OPTION" ""
+}
+
+command_exists() {
+	local command="$1"
+	type "$command" >/dev/null 2>&1
+}
+
+cdls_command() {
+	local user_command="$(cdls_user_command)"
+	if [ -n "$user_command" ]; then
+		echo "$user_command"
+	else
+		echo ""
+	fi
+}

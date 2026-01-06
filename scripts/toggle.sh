@@ -48,7 +48,8 @@ kill_cdls() {
 }
 
 create_cdls() {
-	local cdls_id="$(tmux split-window -b -l 30% -P -F "#{pane_id}" "$CURRENT_DIR/runner.sh $PANE_ID")"
+	local size="$(cdls_size)"
+	local cdls_id="$(tmux split-window -b -l "$size" -P -F "#{pane_id}" "$CURRENT_DIR/runner.sh $PANE_ID")"
 	register_cdls "$cdls_id"
 	# Return focus to the original pane
 	tmux select-pane -t "$PANE_ID"

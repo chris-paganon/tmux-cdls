@@ -2,6 +2,11 @@
 
 set -e
 
+CURRENT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+
+source "$CURRENT_DIR/helpers.sh"
+source "$CURRENT_DIR/variables.sh"
+
 last_path=""
 current_path=""
 pane_id="$1"
@@ -12,7 +17,10 @@ if [[ -z $TMUX ]]; then
 fi
 
 ls_command() {
-  if command -v exa >/dev/null 2>&1; then
+  local user_command="$(cdls_command)"
+  if [ -n "$user_command" ]; then
+    eval "$user_command \"$1\""
+  elif command -v exa >/dev/null 2>&1; then
     exa -a --color=always "$1"
   elif command -v lsd >/dev/null 2>&1; then
     lsd -A --color=always "$1"
