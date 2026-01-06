@@ -106,3 +106,7 @@ cdls_command() {
 		echo ""
 	fi
 }
+
+cdls_poll_rate() {
+	get_tmux_option "$CDLS_POLL_RATE_OPTION" "$CDLS_POLL_RATE"
+}

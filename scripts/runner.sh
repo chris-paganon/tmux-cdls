@@ -42,9 +42,10 @@ print_new_directory_content() {
 }
 
 background_runner() {
+  local poll_rate="$(cdls_poll_rate)"
   while true; do
     print_new_directory_content
-    sleep 0.5
+    sleep "$poll_rate"
   done
 }
 
