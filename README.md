@@ -1,6 +1,6 @@
 # Tmux CDLS
 
-`tmux-cdls` displays your current directory's contents in a dedicated pane that automatically updates (witha a new line) as you modify the directory or navigate. This keeps your file structure visible at all times, making file operations and navigation easier.
+`tmux-cdls` displays your current directory's contents in a dedicated pane that automatically updates as you modify the directory or navigate. This keeps your file structure visible at all times, making file operations and navigation easier.
 
 The plugin is inspired by [broot](https://dystroy.org/broot/), but with a much simpler approach and without taking you out of your usual terminal workflow.
 
