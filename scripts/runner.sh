@@ -9,6 +9,10 @@ source "$CURRENT_DIR/variables.sh"
 
 last_path=""
 current_path=""
+
+last_ls_output=""
+current_ls_output=""
+
 pane_id="$1"
 
 if [[ -z $TMUX ]]; then
@@ -36,8 +40,16 @@ print_new_directory_content() {
     echo "$current_path"
     ls_command "$current_path"
     echo ""
-    
+    last_ls_output=$(ls_command "$current_path")
     last_path="$current_path"
+  else
+    current_ls_output=$(ls_command "$current_path")
+    if [[ "$last_ls_output" != "$current_ls_output" ]]; then
+      echo "$current_path"
+      ls_command "$current_path"
+      echo ""
+      last_ls_output="$current_ls_output"
+    fi
   fi
 }
 
