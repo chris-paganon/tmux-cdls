@@ -1,21 +1,10 @@
 # Tmux CDLS
 
-`tmux-cdls` keeps a live directory listing at the top of your terminal that updates automatically as you navigate. It helps you stay aware of your current directory contents while you work.
+`tmux-cdls` displays your current directory's contents in a dedicated pane that automatically updates (witha a new line) as you modify the directory or navigate. This keeps your file structure visible at all times, making file operations and navigation easier.
 
-The plugin is inspired by [broot](https://dystroy.org/broot/), but with a much simpler approach and without taking you out of your terminal.
+The plugin is inspired by [broot](https://dystroy.org/broot/), but with a much simpler approach and without taking you out of your usual terminal workflow.
 
-Some of the features that make the plugin useful:
-
-- **always visible**<br/>
-  Directory listing stays at the top of your terminal, auto-updating as you cd around.
-- **unobtrusive**<br/>
-  Takes up minimal space (default 30% of screen) and doesn't interfere with your workflow.
-- **smart command detection**<br/>
-  Automatically uses `exa` or `lsd` if available, falls back to `ls` otherwise.
-
-Requirements: `tmux 1.9` or higher
-
-Tested on Linux.
+Requirements: `tmux 1.9` or higher.
 
 ### Key bindings
 
